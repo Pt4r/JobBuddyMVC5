@@ -340,5 +340,9 @@ ASALocalRun/
 healthchecksdb
 
 Web.config
-Web.debug.config
-Web.release.config
+Web.Debug.config
+Web.Release.config
+
+JobBuddy/Web.config
+JobBuddy/Web.Debug.config
+JobBuddy/Web.Release.config

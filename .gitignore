@@ -339,10 +339,10 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-Web.config
-Web.Debug.config
-Web.Release.config
-
 JobBuddy/Web.config
 JobBuddy/Web.Debug.config
 JobBuddy/Web.Release.config
+
+Web.config
+Web.Debug.config
+Web.Release.config

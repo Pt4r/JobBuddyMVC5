@@ -9,8 +9,10 @@ namespace JobBuddy.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<ClientUserDetails> Clients { get; set; }
+
         public ApplicationDbContext()
-            : base("PasparakisDB", throwIfV1Schema: false)
+            : base("LocalDb", throwIfV1Schema: false)
         {
         }
 

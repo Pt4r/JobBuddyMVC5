@@ -151,9 +151,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -188,6 +185,10 @@
     <Compile Include="Migrations\201912201635388_First Init.Designer.cs">
       <DependentUpon>201912201635388_First Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912221321390_Added Client User Details.cs" />
+    <Compile Include="Migrations\201912221321390_Added Client User Details.Designer.cs">
+      <DependentUpon>201912221321390_Added Client User Details.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -197,8 +198,13 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\ClientUserDetails.cs" />
+    <Compile Include="Models\CurrentStatus.cs" />
+    <Compile Include="Models\enumGender.cs" />
+    <Compile Include="Models\LookingForStatus.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ClientRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +283,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201912201635388_First Init.resx">
       <DependentUpon>201912201635388_First Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912221321390_Added Client User Details.resx">
+      <DependentUpon>201912221321390_Added Client User Details.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

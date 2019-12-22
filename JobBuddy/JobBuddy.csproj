@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Migrations\201912201635388_First Init.cs" />
     <Compile Include="Migrations\201912201635388_First Init.Designer.cs">
       <DependentUpon>201912201635388_First Init.cs</DependentUpon>
@@ -188,6 +189,14 @@
     <Compile Include="Migrations\201912221321390_Added Client User Details.cs" />
     <Compile Include="Migrations\201912221321390_Added Client User Details.Designer.cs">
       <DependentUpon>201912221321390_Added Client User Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912221444412_Caps Id in Client model.cs" />
+    <Compile Include="Migrations\201912221444412_Caps Id in Client model.Designer.cs">
+      <DependentUpon>201912221444412_Caps Id in Client model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912221610346_Added annotation for date in Client.cs" />
+    <Compile Include="Migrations\201912221610346_Added annotation for date in Client.Designer.cs">
+      <DependentUpon>201912221610346_Added annotation for date in Client.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -199,6 +208,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ClientUserDetails.cs" />
+    <Compile Include="Models\ClientCreateViewModel.cs" />
     <Compile Include="Models\CurrentStatus.cs" />
     <Compile Include="Models\enumGender.cs" />
     <Compile Include="Models\LookingForStatus.cs" />
@@ -257,6 +267,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -266,6 +281,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ProfilePictures\" />
+    <Folder Include="Views\Client\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -286,6 +303,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912221321390_Added Client User Details.resx">
       <DependentUpon>201912221321390_Added Client User Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912221444412_Caps Id in Client model.resx">
+      <DependentUpon>201912221444412_Caps Id in Client model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912221610346_Added annotation for date in Client.resx">
+      <DependentUpon>201912221610346_Added annotation for date in Client.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobBuddy.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,26 +8,26 @@ namespace JobBuddy.Repositories
 {
     public class HrDetailsRepository
     {
-        
+
         public IEnumerable<HrDetail> GetHrDetails()
         {
             IEnumerable<HrDetail> hrDetails;
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                hrDetails = db.Artists.ToList();
+                hrDetails = db.HrDetails.ToList();
             }
 
-            return artists;
+            return hrDetails;
         }
 
-        public void AddArtist(string name)
+        public void AddHrDetail(string name)
         {
             Throw.IfNullOrWhiteSpace(name, "Name cannot be null or whitespace");
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                db.Artists.Add(new Artist
+                db.HrDetails.Add(new HrDetail
                 {
                     Name = name
                 });
@@ -35,38 +36,38 @@ namespace JobBuddy.Repositories
             }
         }
 
-        public void UpdateArtist(Artist artist)
+        public void UpdateHrDetail(HrDetail hrDetail)
         {
-            Throw.IfNull(artist, nameof(artist));
+            Throw.IfNull(hrDetail, nameof(hrDetail));
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                db.Artists.Attach(artist);
-                db.Entry(artist).State = System.Data.Entity.EntityState.Modified;
+                db.HrDetails.Attach(hrDetail);
+                db.Entry(hrDetail).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
             }
         }
 
-        public void DeleteArtist(int id)
+        public void DeleteHrDetail(int id)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                var artist = db.Artists.Find(id);
-                db.Artists.Remove(artist);
+                var artist = db.HrDetails.Find(id);
+                db.HrDetails.Remove(artist);
                 db.SaveChanges();
             }
         }
 
-        public Artist FindById(int id)
+        public HrDetail FindById(int id)
         {
-            Artist artist;
+            HrDetail hrDetail;
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                artist = db.Artists.Find(id);
+                hrDetail = db.HrDetails.Find(id);
             }
 
-            return artist;
+            return hrDetail;
         }
     }
-    
+
 }

@@ -17,29 +17,25 @@ namespace JobBuddy.Repositories
             {
                 hrDetails = db.HrDetails.ToList();
             }
-
             return hrDetails;
         }
 
-        public void AddHrDetail(string name)
+        public void AddHrDetail(Company company, int phoneno, byte  profpic)
         {
-            Throw.IfNullOrWhiteSpace(name, "Name cannot be null or whitespace");
-
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 db.HrDetails.Add(new HrDetail
                 {
-                    Name = name
+                    HrCompany = company,
+                    PhoneNumber = phoneno,
+                    ProfilePic = profpic
                 });
-
                 db.SaveChanges();
             }
         }
 
         public void UpdateHrDetail(HrDetail hrDetail)
         {
-            Throw.IfNull(hrDetail, nameof(hrDetail));
-
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 db.HrDetails.Attach(hrDetail);
@@ -65,7 +61,6 @@ namespace JobBuddy.Repositories
             {
                 hrDetail = db.HrDetails.Find(id);
             }
-
             return hrDetail;
         }
     }

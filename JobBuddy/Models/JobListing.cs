@@ -12,16 +12,13 @@ namespace JobBuddy.Models.Job
 
         public int Id { get; set; }
         public string Title { get; set; }
-        public DateTime PostDate { get; }
+        public DateTime PostDate { get; set; }
         public string Info { get; set; }
         public JobCategory JobCategory { get; set; }
         public List<Client> SubmitedClients { get; set; }
         public Company Company { get; set; }
 
-        public JobListing()
-        {
-            PostDate = DateTime.Now;
-        }
+
 
     }
 }

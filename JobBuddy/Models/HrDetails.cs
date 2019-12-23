@@ -9,10 +9,10 @@ namespace JobBuddy.Models
     public class HrDetail
     {
         public int Id { get; set; }
-        public Company Company { get; set; }
+        public Company HrCompany { get; set; }
         public List<JobListing> JobListings { get; set; }
         public int PhoneNumber { get; set; }
-        public string ProfilePic { get; set; }
+        public byte ProfilePic { get; set; }
 
     }
 }

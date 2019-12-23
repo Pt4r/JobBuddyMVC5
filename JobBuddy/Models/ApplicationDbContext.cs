@@ -21,8 +21,17 @@ namespace JobBuddy.Models
         {
             return new ApplicationDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<HrDetail>().ToTable("HrUser").HasKey(i => i.Id);
+            modelBuilder.Entity<HrDetail>().Property(i => i.PhoneNumber).IsRequired();
+            modelBuilder.Entity<HrDetail>().HasManyHasMany(i => i.HrCompany).WithMany(i => i.HrUsers).Map(m => m.ToTable("HrCompany"));
+            modelBuilder.Entity<HrDetail>().HasMany(i => i.JobListings).WithRequired(c => c.HrUser).HasForeignKey(c => c.HrUserId);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+
     }
-
-
-
 }

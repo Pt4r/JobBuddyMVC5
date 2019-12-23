@@ -11,6 +11,8 @@ namespace JobBuddy.Models.Job
         //+ HR :type 
 
         public int Id { get; set; }
+        public HrDetail HrUser { get; set; }
+        public int HrUserId { get; set; }
         public string Title { get; set; }
         public DateTime PostDate { get; set; }
         public string Info { get; set; }

@@ -197,8 +197,14 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\enumGender.cs" />
+    <Compile Include="Models\enumOfferStatus.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MentorDetails.cs" />
+    <Compile Include="Models\MentorOffer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\MentorRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

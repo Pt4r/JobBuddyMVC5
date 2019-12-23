@@ -184,6 +184,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MentorsController.cs" />
     <Compile Include="Migrations\201912201635388_First Init.cs" />
     <Compile Include="Migrations\201912201635388_First Init.Designer.cs">
       <DependentUpon>201912201635388_First Init.cs</DependentUpon>
@@ -265,6 +266,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Mentors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

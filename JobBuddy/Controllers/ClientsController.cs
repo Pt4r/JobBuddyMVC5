@@ -49,7 +49,7 @@ namespace JobBuddy.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirm(Guid id)
         {
-            _clientRepository.DeleteGig(id);
+            _clientRepository.DeleteClient(id);
             return RedirectToAction("Index");
         }
 
@@ -71,7 +71,7 @@ namespace JobBuddy.Controllers
                 return View(vm);
             }
 
-            _clientRepository.UpdateGig(vm);
+            _clientRepository.UpdateClient(vm);
 
             return RedirectToAction("Index");
         }

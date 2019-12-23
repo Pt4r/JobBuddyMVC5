@@ -10,6 +10,7 @@ namespace JobBuddy.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<ClientUserDetails> Clients { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
         public ApplicationDbContext()
             : base("LocalDb", throwIfV1Schema: false)

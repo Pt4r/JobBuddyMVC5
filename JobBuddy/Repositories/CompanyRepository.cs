@@ -7,59 +7,59 @@ using JobBuddy.Models;
 
 namespace JobBuddy.Repositories
 {
-    public class ClientRepository
+    public class CompanyRepository
     {
-        public IEnumerable<ClientUserDetails> GetClients()
+        public IEnumerable<Company> GetCompanies()
         {
-            IEnumerable<ClientUserDetails> clients;
+            IEnumerable<Company> companies;
 
             using (var db = new ApplicationDbContext())
             {
-                clients = db.Clients.ToList();
+                companies = db.Companies.ToList();
             }
 
-            return clients;
+            return companies;
         }
 
-        public IEnumerable<ClientUserDetails> GetClients(IEnumerable<Guid> ids)
+        public IEnumerable<Company> GetCompanies(IEnumerable<Guid> ids)
         {
-            List<ClientUserDetails> clients = new List<ClientUserDetails>();
+            List<Company> companies = new List<Company>();
 
             using (var db = new ApplicationDbContext())
             {
-                clients = db.Clients.Where(client => ids.Contains(client.Id)).ToList();
+                companies = db.Companies.Where(company => ids.Contains(company.Id)).ToList();
             }
 
-            return clients;
+            return companies;
         }
 
-        public void AddClient(ClientUserDetails client)
+        public void AddCompany(Company company)
         {
-            if (client == null)
+            if (company == null)
             {
                 throw new ArgumentNullException();
             }
 
             using (var db = new ApplicationDbContext())
             {
-                client.Id = Guid.NewGuid();
-                db.Clients.Add(client);
+                company.Id = Guid.NewGuid();
+                db.Companies.Add(company);
                 db.SaveChanges();
 
             }
         }
 
-        public void DeleteClient(Guid id)
+        public void DeleteCompany(Guid id)
         {
             using (var db = new ApplicationDbContext())
             {
-                var client = db.Clients.Find(id);
-                db.Clients.Remove(client);
+                var company = db.Companies.Find(id);
+                db.Companies.Remove(company);
                 db.SaveChanges();
             }
         }
 
-        public void UpdateClient(ClientCreateViewModel vm)
+        public void UpdateCompany(Company vm)
         {
             if (vm == null)
             {
@@ -68,25 +68,24 @@ namespace JobBuddy.Repositories
 
             using (var db = new ApplicationDbContext())
             {
-                db.Clients.Attach(vm.Client);
-                // it should be vm (not vm.Client)
-                db.Entry(vm.Client).State = EntityState.Modified;
+                db.Companies.Attach(vm);
+                db.Entry(vm).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
 
-        public ClientUserDetails FindById(Guid id)
+        public Company FindById(Guid id)
         {
-            ClientUserDetails client;
+            Company company;
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                client = db.Clients
+                company = db.Companies
                     //                    .Include("Artist")
                     //                    .Include("Genre")
                     .SingleOrDefault(i => i.Id == id);
             }
 
-            return client;
+            return company;
         }
     }
 }

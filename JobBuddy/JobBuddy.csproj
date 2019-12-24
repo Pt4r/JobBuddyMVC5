@@ -184,6 +184,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MentorsController.cs" />
     <Compile Include="Migrations\201912201635388_First Init.cs" />
     <Compile Include="Migrations\201912201635388_First Init.Designer.cs">
       <DependentUpon>201912201635388_First Init.cs</DependentUpon>
@@ -197,8 +198,16 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\enumGender.cs" />
+    <Compile Include="Models\enumOfferStatus.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MentorDetails.cs" />
+    <Compile Include="Models\MentorOffer.cs" />
+    <Compile Include="Models\Mentors_MentorOffersViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\MentorOfferRepository.cs" />
+    <Compile Include="Repositories\MentorRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +266,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Mentors\Index.cshtml" />
+    <Content Include="Views\Mentors\Create.cshtml" />
+    <Content Include="Views\Mentors\Delete.cshtml" />
+    <Content Include="Views\Mentors\Edit.cshtml" />
+    <Content Include="Views\Mentors\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

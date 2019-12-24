@@ -17,6 +17,7 @@ namespace JobBuddy.Models
         {
         }
 
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -24,24 +25,42 @@ namespace JobBuddy.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MentorDetails>()
+              modelBuilder.Entity<MentorDetails>()
                         .HasKey(m => m.MentorId);
 
-                       
-
-            modelBuilder.Entity<MentorDetails>()
-                        .Property(m => m.Description)
-                        .IsRequired()
-                        .HasMaxLength(1000);
-
-            modelBuilder.Entity<MentorDetails>()
+              modelBuilder.Entity<MentorDetails>()
                        .Property(m => m.PhoneNumber)
+                       .HasMaxLength(25)
                        .IsRequired();
+
+             //Πρέπει να δω πώς θα μπει το Rating ..Προς το παρόν μόνο Required
+             modelBuilder.Entity<MentorDetails>()
+                       .Property(m => m.Rating)
+                       .IsRequired(); 
+            //episis na doume pws mpainei kai ti length...
+             modelBuilder.Entity<MentorDetails>()
+                       .Property(m => m.ProfilePicture)
+                       .IsOptional()
+                       .HasColumnName("[Profile Picture]");
+
 
             modelBuilder.Entity<MentorDetails>()
                       .Property(m => m.Gender)
                       .IsRequired();
 
+            modelBuilder.Entity<MentorDetails>()
+                        .Property(m => m.Description)
+                        .IsRequired()
+                        .HasMaxLength(2000);
+
+            //Company-Mentor relationship
+            modelBuilder.Entity<MentorDetails>()
+                        .HasOptional(m=>m.Company)
+                        .WithMany(c=>c.Mentors)
+                        .HasForeignKey(m=>m.CompanyId)
+                        .WillCascadeOnDelete(false);
+
+            //Mentor-MentorOffer Relationship
             modelBuilder.Entity<MentorOffer>()
                         .HasRequired(mo => mo.Mentor)
                         .WithMany(m=>m.OffersReceived.ToList())
@@ -66,7 +85,6 @@ namespace JobBuddy.Models
             modelBuilder.Entity<MentorOffer>()
                     .Property(mo => mo.MentorId)
                     .IsRequired();
-
 
             //base.OnModelCreating(modelBuilder);
         }

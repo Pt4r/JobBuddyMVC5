@@ -7,5 +7,7 @@ namespace JobBuddy.Models
 {
     public class Company
     {
+        public List<HrDetail> HrUser { get; set; }
+        
     }
 }

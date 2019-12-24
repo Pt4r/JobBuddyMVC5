@@ -10,6 +10,7 @@ namespace JobBuddy.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<MentorDetails> Mentors { get; set; }
+
         public DbSet<MentorOffer> MentorOffers { get; set; }
         public ApplicationDbContext()
             : base("PasparakisDB", throwIfV1Schema: false)

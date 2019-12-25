@@ -215,8 +215,6 @@
     <Compile Include="Models\CurrentStatus.cs" />
     <Compile Include="Models\enumGender.cs" />
     <Compile Include="Models\LookingForStatus.cs" />
-    <Compile Include="Models\Company.cs" />
-    <Compile Include="Models\enumGender.cs" />
     <Compile Include="Models\enumOfferStatus.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MentorDetails.cs" />

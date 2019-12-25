@@ -1,5 +1,4 @@
-﻿using JobBuddy.Models.Details;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,7 +22,7 @@ namespace JobBuddy.Models
         public Company Company { get; set; }
         public Guid CompanyId { get; set; }
 
-        public List<Client> SubmitedClients { get; set; }
+        public List<ClientUserDetails> SubmitedClients { get; set; }
 
     }
 }

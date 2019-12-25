@@ -40,6 +40,8 @@ namespace JobBuddy.Models
         [Display(Name = "Cover Letter")]
         public string CoverLetter { get; set; }
 
+        public List<JobListing> JobListings { get; set; }
+
         //FK List Job Interest
         // Hr
         // Mentors

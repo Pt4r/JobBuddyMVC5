@@ -218,7 +218,6 @@
     <Compile Include="Models\enumGender.cs" />
     <Compile Include="Models\LookingForStatus.cs" />
     <Compile Include="Models\enumOfferStatus.cs" />
-    <Compile Include="Models\Client.cs" />
     <Compile Include="Models\HrDetails.cs" />
     <Compile Include="Models\JobCategory.cs" />
     <Compile Include="Models\JobListing.cs" />

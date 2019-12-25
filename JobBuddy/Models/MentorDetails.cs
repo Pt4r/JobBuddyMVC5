@@ -19,7 +19,7 @@ namespace JobBuddy.Models
 
         public string ProfilePicture { get; set; }
 
-        public Gender Gender { get; set; }
+        public enumGender Gender { get; set; }
 
         public string Description { get; set; }
 

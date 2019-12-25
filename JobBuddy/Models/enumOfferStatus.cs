@@ -5,9 +5,10 @@ using System.Web;
 
 namespace JobBuddy.Models
 {
-    public enum enumGender
+    public enum OfferStatus
     {
-        Male,
-        Female
+        Pending,
+        Accepted,
+        Declined
     }
 }

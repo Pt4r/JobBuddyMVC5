@@ -9,7 +9,7 @@ namespace JobBuddy.Controllers
 {
     public class JobCategoryController : Controller
     {
-        private readonly JobCategoryRepository _jobCategoryRepository = new JobCategoryRepository();
+        private readonly JobCategoriesRepository _jobCategoryRepository = new JobCategoriesRepository();
         // GET: JobCategory
         public ActionResult Index()
         {

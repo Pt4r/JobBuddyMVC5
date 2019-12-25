@@ -6,7 +6,7 @@ using System.Web;
 namespace JobBuddy.Models
 {
 
-    public class HrDetail
+    public class HrUserDetails
     {
         public Guid Id { get; set; }
         public enumGender Gender { get; set; }

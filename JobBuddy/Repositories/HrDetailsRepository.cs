@@ -9,9 +9,9 @@ namespace JobBuddy.Repositories
     public class HrDetailsRepository
     {
 
-        public IEnumerable<HrDetail> GetHrs()
+        public IEnumerable<HrUserDetails> GetHrs()
         {
-            IEnumerable<HrDetail> hrDetails;
+            IEnumerable<HrUserDetails> hrDetails;
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
@@ -21,7 +21,7 @@ namespace JobBuddy.Repositories
         }
 
 
-        public void AddHr(HrDetail hrDetail)
+        public void AddHr(HrUserDetails hrDetail)
         {
             if (hrDetail == null)
             {
@@ -35,7 +35,7 @@ namespace JobBuddy.Repositories
             }
         }
 
-        public void UpdateHr(HrDetail hrDetail)
+        public void UpdateHr(HrUserDetails hrDetail)
         {
             if (hrDetail == null)
             {
@@ -59,9 +59,9 @@ namespace JobBuddy.Repositories
             }
         }
 
-        public HrDetail FindHrById(Guid id)
+        public HrUserDetails FindHrById(Guid id)
         {
-            HrDetail hrDetail;
+            HrUserDetails hrDetail;
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 hrDetail = db.HrDetails.Find(id);

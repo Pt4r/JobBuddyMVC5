@@ -20,14 +20,14 @@ namespace JobBuddy.Controllers
 
         public ActionResult Create()
         {
-            var hr = new HrDetail();
+            var hr = new HrUserDetails();
             return View(hr);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Create(HrDetail hr)
+        public ActionResult Create(HrUserDetails hr)
         {
             if (ModelState.IsValid)
             {
@@ -51,7 +51,7 @@ namespace JobBuddy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(HrDetail hr)
+        public ActionResult Edit(HrUserDetails hr)
         {
             if (ModelState.IsValid)
             {

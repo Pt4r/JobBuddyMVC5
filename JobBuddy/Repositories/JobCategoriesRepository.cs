@@ -5,7 +5,7 @@ using System.Web;
 
 namespace JobBuddy.Models
 {
-    public class JobCategoryRepository
+    public class JobCategoriesRepository
     {
         public IEnumerable<JobCategory> GetJobCategory()
         {

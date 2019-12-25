@@ -13,7 +13,7 @@ namespace JobBuddy.Models
         public DateTime PostDate { get; set; }
 
 
-        public HrDetail HrUser { get; set; }
+        public HrUserDetails HrUser { get; set; }
         public Guid HrUserId { get; set; }
 
         public JobCategory JobCategory { get; set; }

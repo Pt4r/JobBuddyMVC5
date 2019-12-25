@@ -221,10 +221,10 @@
     <Compile Include="Models\enumJobCategoryTitle.cs" />
     <Compile Include="Models\LookingForStatus.cs" />
     <Compile Include="Models\enumOfferStatus.cs" />
-    <Compile Include="Models\HrDetails.cs" />
+    <Compile Include="Models\HrUserDetails.cs" />
     <Compile Include="Models\JobListing.cs" />
-    <Compile Include="Models\JobCategories.cs" />
-    <Compile Include="Repositories\JobCategoryRepository.cs" />
+    <Compile Include="Models\JobCategory.cs" />
+    <Compile Include="Repositories\JobCategoriesRepository.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MentorDetails.cs" />
     <Compile Include="Models\MentorOffer.cs" />
@@ -306,11 +306,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\JobCategory\" />
     <Folder Include="ProfilePictures\" />
     <Folder Include="Views\Client\" />
     <Folder Include="Views\Companies\" />
     <Folder Include="Views\HrDetails\" />
+    <Folder Include="Views\JobCategory\" />
     <Folder Include="Views\JobListings\" />
   </ItemGroup>
   <ItemGroup>

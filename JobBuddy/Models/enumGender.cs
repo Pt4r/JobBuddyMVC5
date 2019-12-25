@@ -1,6 +1,6 @@
 ﻿namespace JobBuddy.Models
 {
-    public enum Gender
+    public enum enumGender
     {
         Male,
         Female

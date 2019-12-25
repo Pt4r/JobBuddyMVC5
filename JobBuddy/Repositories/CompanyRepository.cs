@@ -80,7 +80,7 @@ namespace JobBuddy.Repositories
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 company = db.Companies
-                    //                    .Include("Artist")
+                    //                    .Include("JobCategory")
                     //                    .Include("Genre")
                     .SingleOrDefault(i => i.Id == id);
             }

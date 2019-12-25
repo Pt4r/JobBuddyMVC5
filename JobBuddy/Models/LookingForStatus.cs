@@ -1,6 +1,6 @@
 ﻿namespace JobBuddy.Models
 {
-    public enum LookingForStatus
+    public enum enumLookingForStatus
     {
         Full_Time,
         Part_Time

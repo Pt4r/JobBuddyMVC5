@@ -21,6 +21,12 @@ namespace JobBuddy.Models
         {
             return new ApplicationDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+           
+
+        }
     }
 
 }

@@ -1,5 +1,4 @@
 ﻿using JobBuddy.Models;
-using JobBuddy.Models.Job;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,19 +22,16 @@ namespace JobBuddy.Repositories
             return jobListings;
         }
 
-        public void AddJobListing(string title, string info, JobCategory jobcat, Company company)
+        public void AddJobListing(JobListing jobListing)
         {
+            if (jobListing == null)
+            {
+                throw new ArgumentNullException();
+            }
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                db.JobListings.Add(new JobListing
-                {
-                    Title = title,
-                    Info = info,
-                    PostDate = DateTime.Now,
-                    JobCategory = jobcat,
-                    Company = company
-                });
-
+                jobListing.Id = Guid.NewGuid();
+                db.JobListings.Add(jobListing);
                 db.SaveChanges();
             }
         }
@@ -50,17 +46,17 @@ namespace JobBuddy.Repositories
             }
         }
 
-        public void DeleteJobListing(int id)
+        public void DeleteJobListing(Guid id)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                var artist = db.JobListings.Find(id);
-                db.JobListings.Remove(artist);
+                var jobListing = db.JobListings.Find(id);
+                db.JobListings.Remove(jobListing);
                 db.SaveChanges();
             }
         }
 
-        public JobListing FindById(int id)
+        public JobListing FindJobListingById(Guid id)
         {
             JobListing jobListing;
             using (ApplicationDbContext db = new ApplicationDbContext())

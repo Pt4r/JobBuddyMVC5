@@ -9,7 +9,7 @@ namespace JobBuddy.Repositories
     public class HrDetailsRepository
     {
 
-        public IEnumerable<HrDetail> GetHrDetails()
+        public IEnumerable<HrDetail> GetHrs()
         {
             IEnumerable<HrDetail> hrDetails;
 
@@ -20,22 +20,27 @@ namespace JobBuddy.Repositories
             return hrDetails;
         }
 
-        public void AddHrDetail(Company company, int phoneno, byte  profpic)
+
+        public void AddHr(HrDetail hrDetail)
         {
+            if (hrDetail == null)
+            {
+                throw new ArgumentNullException();
+            }
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                db.HrDetails.Add(new HrDetail
-                {
-                    HrCompany = company,
-                    PhoneNumber = phoneno,
-                    ProfilePic = profpic
-                });
+                hrDetail.Id = Guid.NewGuid();
+                db.HrDetails.Add(hrDetail);
                 db.SaveChanges();
             }
         }
 
-        public void UpdateHrDetail(HrDetail hrDetail)
+        public void UpdateHr(HrDetail hrDetail)
         {
+            if (hrDetail == null)
+            {
+                throw new ArgumentNullException();
+            }
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 db.HrDetails.Attach(hrDetail);
@@ -44,17 +49,17 @@ namespace JobBuddy.Repositories
             }
         }
 
-        public void DeleteHrDetail(int id)
+        public void DeleteHr(Guid id)
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                var artist = db.HrDetails.Find(id);
-                db.HrDetails.Remove(artist);
+                var hrDetail = db.HrDetails.Find(id);
+                db.HrDetails.Remove(hrDetail);
                 db.SaveChanges();
             }
         }
 
-        public HrDetail FindById(int id)
+        public HrDetail FindHrById(Guid id)
         {
             HrDetail hrDetail;
             using (ApplicationDbContext db = new ApplicationDbContext())

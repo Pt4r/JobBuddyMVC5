@@ -7,5 +7,7 @@ namespace JobBuddy.Models
 {
     public class JobCategory
     {
+        public List<JobListing> JobListings { get; set; }
+
     }
 }

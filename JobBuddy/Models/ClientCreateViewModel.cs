@@ -5,9 +5,9 @@ using System.Web;
 
 namespace JobBuddy.Models
 {
-    public enum enumGender
+    public class ClientCreateViewModel
     {
-        Male,
-        Female
+        public ClientUserDetails Client { get; set; }
+
     }
 }

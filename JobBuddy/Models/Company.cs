@@ -23,6 +23,8 @@ namespace JobBuddy.Models
 
         public string Email { get; set; }
 
+        public List<HrDetail> HrUser { get; set; }
+        public List<JobListing> JobListings { get; set; }
         // Hr List
         //FK List Job Categories
     }

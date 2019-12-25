@@ -23,8 +23,8 @@ namespace JobBuddy.Models
         {
             using (var db = new ApplicationDbContext())
             {
-                jobCategory.IdJC = Guid.NewGuid();
-                db.JobCategories.Add(jobCategory);
+                jobCategory.Id = Guid.NewGuid();
+                db.JobCategories.Add(jobCategory); 
                 db.SaveChanges();
             }
         }

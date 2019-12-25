@@ -191,7 +191,7 @@
       <DependentUpon>201912201635388_First Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\AdministratorDetails.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -202,6 +202,7 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\enumGender.cs" />
+    <Compile Include="Models\enumJobCategoryTitle.cs" />
     <Compile Include="Models\enumOfferStatus.cs" />
     <Compile Include="Models\JobCategories.cs" />
     <Compile Include="Repositories\JobCategoryRepository.cs" />

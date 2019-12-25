@@ -5,13 +5,13 @@ using System.Web;
 
 namespace JobBuddy.Models
 {
-    public  enum enumJobCategoryTitle { IT , Economics, Marketing, Sales, Engineering, Healthcare, Arts, Tourism, CustomerSupport } 
+    
     public class JobCategory
     {   
-        public Guid IdJC { get; set; }
-        public enumJobCategoryTitle JobCategoryTitle { get; set; }
-        public string Subcategory111 { get; set; }
-        public string Subcategory222 { get; set; }
+        public Guid Id { get; set; }
+        public enumJobCategoryTitle JobCategoryTitle { get;  }
+        public string Subcategory_1 { get; set; }
+        public string Subcategory_2 { get; set; }
 
     }
 }

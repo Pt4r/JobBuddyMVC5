@@ -5,9 +5,11 @@ using System.Web;
 
 namespace JobBuddy.Models
 {
-    public enum enumGender
+    public class AdministratorDetails  // apo ApplicationUser 
     {
-        Male,
-        Female
+        public Guid Id { get; set; }
+        
+        
+
     }
 }

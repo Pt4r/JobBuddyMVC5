@@ -82,7 +82,7 @@ namespace JobBuddy.Models
 
             modelBuilder.Entity<JobListing>().ToTable("JobListing");
             modelBuilder.Entity<JobListing>().HasKey(i => i.Id);
-            modelBuilder.Entity<JobListing>().Property(i => i.JobListingTitle).IsRequired().HasMaxLength(250);
+            modelBuilder.Entity<JobListing>().Property(i => i.Title).IsRequired().HasMaxLength(250);
             modelBuilder.Entity<JobListing>().Property(i => i.Info).IsRequired().HasMaxLength(1000);
             modelBuilder.Entity<JobListing>().HasMany(i => i.SubmitedClients).WithMany(c => c.JobListings).Map(s => s.ToTable("ClientSubmitedJobListings"));
             modelBuilder.Entity<JobListing>().HasRequired(i => i.JobCategory).WithMany(c => c.JobListings).HasForeignKey(i => i.JobCategoryId).WillCascadeOnDelete(false);

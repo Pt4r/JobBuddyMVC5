@@ -19,8 +19,10 @@ namespace JobBuddy.Models
 
         [Required]
         [Display(Name = "Phone Number")]
+        [DataType(DataType.PhoneNumber)]
         public int PhoneNumber { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         // Hr List

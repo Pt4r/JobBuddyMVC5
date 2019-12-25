@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using JobBuddy.Models.Job;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace JobBuddy.Models
@@ -33,7 +32,7 @@ namespace JobBuddy.Models
 
             modelBuilder.Entity<JobListing>().ToTable("JobListing");
             modelBuilder.Entity<JobListing>().HasKey(i => i.Id);
-            modelBuilder.Entity<JobListing>().Property(i => i.Title).IsRequired().HasMaxLength(250);
+            modelBuilder.Entity<JobListing>().Property(i => i.JobListingTitle).IsRequired().HasMaxLength(250);
             modelBuilder.Entity<JobListing>().Property(i => i.Info).IsRequired().HasMaxLength(1000);
             // H sxesi HrDetail - JobListing exei dilwthei pio panw, prepei na ksanadilwthei kai edw?
             modelBuilder.Entity<JobListing>().HasRequired(i => i.HrUser).WithMany(h => h.JobListings).HasForeignKey(i => i.HrUserId).WillCascadeOnDelete(false); 

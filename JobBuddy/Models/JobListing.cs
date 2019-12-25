@@ -9,7 +9,7 @@ namespace JobBuddy.Models
     public class JobListing
     {
         public Guid Id { get; set; }
-        public string Title { get; set; }
+        public string JobListingTitle { get; set; }
         public string Info { get; set; }
         public DateTime PostDate { get; set; }
 

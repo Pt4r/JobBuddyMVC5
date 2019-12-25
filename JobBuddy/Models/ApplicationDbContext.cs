@@ -9,7 +9,7 @@ namespace JobBuddy.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {   public DbSet<JobCategory> JobCategories { get; set; }
-    {
+    
         public DbSet<MentorDetails> Mentors { get; set; }
 
         public DbSet<MentorOffer> MentorOffers { get; set; }

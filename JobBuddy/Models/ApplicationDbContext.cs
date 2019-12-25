@@ -9,10 +9,16 @@ namespace JobBuddy.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<ClientUserDetails> Clients { get; set; }
+        public DbSet<Company> Companies { get; set; }
+
+        public DbSet<MentorDetails> Mentors { get; set; }
+
+        public DbSet<MentorOffer> MentorOffers { get; set; }
         public DbSet<HrDetail> HrDetails { get; set; }
         public DbSet<JobListing> JobListings { get; set; }
         public ApplicationDbContext()
-            : base("PasparakisDB", throwIfV1Schema: false)
+            : base("LocalDb", throwIfV1Schema: false)
         {
         }
 
@@ -23,6 +29,50 @@ namespace JobBuddy.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<MentorDetails>()
+                        .HasKey(m => m.MentorId);
+
+
+
+            modelBuilder.Entity<MentorDetails>()
+                        .Property(m => m.Description)
+                        .IsRequired()
+                        .HasMaxLength(1000);
+
+            modelBuilder.Entity<MentorDetails>()
+                       .Property(m => m.PhoneNumber)
+                       .IsRequired();
+
+            modelBuilder.Entity<MentorDetails>()
+                      .Property(m => m.Gender)
+                      .IsRequired();
+
+            modelBuilder.Entity<MentorOffer>()
+                        .HasRequired(mo => mo.Mentor)
+                        .WithMany(m => m.OffersReceived.ToList())
+                        .HasForeignKey(mo => mo.MentorId)
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<MentorOffer>()
+                        .HasKey(mo => mo.MentorOfferId);
+
+            modelBuilder.Entity<MentorOffer>()
+                        .Property(mo => mo.OfferStatus)
+                        .IsRequired();
+
+            modelBuilder.Entity<MentorOffer>()
+                     .Property(mo => mo.ExpirationDate)
+                     .IsRequired();
+
+            modelBuilder.Entity<MentorOffer>()
+                     .Property(mo => mo.PostDate)
+                     .IsRequired();
+
+            modelBuilder.Entity<MentorOffer>()
+                    .Property(mo => mo.MentorId)
+                    .IsRequired();
+
+
             modelBuilder.Entity<HrDetail>().ToTable("HrUser");
             modelBuilder.Entity<HrDetail>().HasKey(i => i.Id);
             modelBuilder.Entity<HrDetail>().Property(m => m.Gender).IsRequired();
@@ -35,17 +85,17 @@ namespace JobBuddy.Models
             modelBuilder.Entity<JobListing>().Property(i => i.JobListingTitle).IsRequired().HasMaxLength(250);
             modelBuilder.Entity<JobListing>().Property(i => i.Info).IsRequired().HasMaxLength(1000);
             // H sxesi HrDetail - JobListing exei dilwthei pio panw, prepei na ksanadilwthei kai edw?
-            modelBuilder.Entity<JobListing>().HasRequired(i => i.HrUser).WithMany(h => h.JobListings).HasForeignKey(i => i.HrUserId).WillCascadeOnDelete(false); 
+            modelBuilder.Entity<JobListing>().HasRequired(i => i.HrUser).WithMany(h => h.JobListings).HasForeignKey(i => i.HrUserId).WillCascadeOnDelete(false);
             modelBuilder.Entity<JobListing>().HasMany(i => i.SubmitedClients).WithMany(c => c.JobListings).Map(s => s.ToTable("ClientSubmitedJobListings"));
             modelBuilder.Entity<JobListing>().HasRequired(i => i.JobCategory).WithMany(c => c.JobListings).HasForeignKey(i => i.JobCategoryId).WillCascadeOnDelete(false);
 
 
             // Pws tha paroume tin etairia tou HrDetail User na tin kanoume assign sto jobListing??
-                                          
-                                                                    
-            base.OnModelCreating(modelBuilder);
+
+            //base.OnModelCreating(modelBuilder);
         }
-
-
     }
 }
+
+
+    

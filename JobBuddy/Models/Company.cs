@@ -7,5 +7,6 @@ namespace JobBuddy.Models
 {
     public class Company
     {
+        public List<MentorDetails> Mentors { get; set; }
     }
 }

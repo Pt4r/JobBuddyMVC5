@@ -9,7 +9,7 @@ namespace JobBuddy.Models
     {
         public Guid  MentorId { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         //fk user
         //fk job categories
@@ -27,5 +27,7 @@ namespace JobBuddy.Models
 
         //enas mentor mporei na douleuei se company optional 1-many rel.
         public Company Company { get; set; }
+
+        public Guid CompanyId { get; set; }
     }
 }

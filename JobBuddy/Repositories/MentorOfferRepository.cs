@@ -23,7 +23,7 @@ namespace JobBuddy.Repositories
 
         public void AddMentorOffer(MentorOffer mentorOffer)
         {
-            if (mentorOffer == null)
+            if (mentorOffer == null)    
             {
                 throw new ArgumentNullException();
             }

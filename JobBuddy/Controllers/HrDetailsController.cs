@@ -75,7 +75,7 @@ namespace JobBuddy.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteMentor(Guid id)
+        public ActionResult DeleteHr(Guid id)
         {
             _hrRepository.DeleteHr(id);
             return RedirectToAction("Index");

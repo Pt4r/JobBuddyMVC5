@@ -25,6 +25,8 @@ namespace JobBuddy.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
+        public List<HrUserDetails> HrUser { get; set; }
+        public List<JobListing> JobListings { get; set; }
         // Hr List
         //FK List Job Categories
     }

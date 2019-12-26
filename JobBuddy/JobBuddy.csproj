@@ -181,9 +181,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\JobCategoryController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\MentorsController.cs" />
+    <Compile Include="Controllers\HrDetailsController.cs" />
+    <Compile Include="Controllers\JobListingsController.cs" />
     <Compile Include="Migrations\201912201635388_First Init.cs" />
     <Compile Include="Migrations\201912201635388_First Init.Designer.cs">
       <DependentUpon>201912201635388_First Init.cs</DependentUpon>
@@ -201,6 +204,7 @@
       <DependentUpon>201912221610346_Added annotation for date in Client.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdministratorDetails.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -214,8 +218,13 @@
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\CurrentStatus.cs" />
     <Compile Include="Models\enumGender.cs" />
+    <Compile Include="Models\enumJobCategoryTitle.cs" />
     <Compile Include="Models\LookingForStatus.cs" />
     <Compile Include="Models\enumOfferStatus.cs" />
+    <Compile Include="Models\HrUserDetails.cs" />
+    <Compile Include="Models\JobListing.cs" />
+    <Compile Include="Models\JobCategory.cs" />
+    <Compile Include="Repositories\JobCategoriesRepository.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MentorDetails.cs" />
     <Compile Include="Models\MentorOffer.cs" />
@@ -225,6 +234,8 @@
     <Compile Include="Repositories\CompanyRepository.cs" />
     <Compile Include="Repositories\MentorOfferRepository.cs" />
     <Compile Include="Repositories\MentorRepository.cs" />
+    <Compile Include="Repositories\HrDetailsRepository.cs" />
+    <Compile Include="Repositories\JobListingsRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -299,6 +310,9 @@
     <Folder Include="ProfilePictures\" />
     <Folder Include="Views\Client\" />
     <Folder Include="Views\Companies\" />
+    <Folder Include="Views\HrDetails\" />
+    <Folder Include="Views\JobCategory\" />
+    <Folder Include="Views\JobListings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

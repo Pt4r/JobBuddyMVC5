@@ -44,6 +44,8 @@ namespace JobBuddy.Models
         [DataType(DataType.Upload)]
         public string CoverLetter { get; set; }
 
+        public List<JobListing> JobListings { get; set; }
+
         //FK List Job Interest
         // Hr
         // Mentors

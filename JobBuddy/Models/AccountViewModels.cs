@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace JobBuddy.Models
 {
@@ -64,6 +65,16 @@ namespace JobBuddy.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

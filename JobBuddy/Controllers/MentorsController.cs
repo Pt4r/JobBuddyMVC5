@@ -11,7 +11,7 @@ namespace JobBuddy.Controllers
     public class MentorsController : Controller
     {
         // GET: Mentors
-        private MentorRepository _mentorRepository = new MentorRepository();
+        private readonly MentorRepository _mentorRepository = new MentorRepository();
         
         public ActionResult Index()
         {

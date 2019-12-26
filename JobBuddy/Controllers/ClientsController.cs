@@ -56,8 +56,10 @@ namespace JobBuddy.Controllers
         public ActionResult Edit(Guid id)
         {
             var client = _clientRepository.FindById(id);
-            ClientCreateViewModel vm = new ClientCreateViewModel();
-            vm.Client = client;
+            ClientCreateViewModel vm = new ClientCreateViewModel
+            {
+                Client = client
+            };
 
             return View(vm);
         }

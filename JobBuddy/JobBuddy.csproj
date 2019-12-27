@@ -312,7 +312,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ProfilePictures\" />
-    <Folder Include="Views\Client\" />
     <Folder Include="Views\Companies\" />
     <Folder Include="Views\HrDetails\" />
     <Folder Include="Views\JobCategory\" />

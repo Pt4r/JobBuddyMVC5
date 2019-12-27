@@ -20,10 +20,12 @@ namespace JobBuddy.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            JobCategory jobCategory = new JobCategory();
+            return View(jobCategory);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(JobCategory jobCategory)
         {
             if (!ModelState.IsValid)
@@ -38,8 +40,8 @@ namespace JobBuddy.Controllers
 
         public ActionResult Edit(Guid id)
         {
-            var genre = _jobCategoryRepository.FindById(id);
-            return View(genre);
+            var jobCategory = _jobCategoryRepository.FindById(id);
+            return View(jobCategory);
         }
 
         [HttpPost]
@@ -59,7 +61,6 @@ namespace JobBuddy.Controllers
        
         public ActionResult Delete(Guid id)
         {
-            
             return View(_jobCategoryRepository.FindById(id));
         }
 

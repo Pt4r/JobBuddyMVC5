@@ -78,7 +78,7 @@ namespace JobBuddy.Repositories
         public ClientUserDetails FindById(Guid id)
         {
             ClientUserDetails client;
-            using (ApplicationDbContext db = new ApplicationDbContext())
+            using (var db = new ApplicationDbContext())
             {
                 client = db.Clients
                     //                    .Include("Artist")

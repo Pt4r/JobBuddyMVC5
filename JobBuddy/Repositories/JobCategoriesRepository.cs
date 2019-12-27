@@ -21,6 +21,11 @@ namespace JobBuddy.Models
 
         public void AddJobCategory(JobCategory jobCategory)
         {
+            if (jobCategory == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             using (var db = new ApplicationDbContext())
             {
                 jobCategory.Id = Guid.NewGuid();
@@ -31,6 +36,11 @@ namespace JobBuddy.Models
 
         public void UpdateJobCategory(JobCategory jobCategory)
         {
+            if (jobCategory == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             using (var db = new ApplicationDbContext())
             {
                 db.JobCategories.Attach(jobCategory);
@@ -54,7 +64,7 @@ namespace JobBuddy.Models
             JobCategory jobCategory;
             using (var db = new ApplicationDbContext())
             {
-                jobCategory = db.JobCategories.Find(id);
+                jobCategory = db.JobCategories.SingleOrDefault(i => i.Id == id);
             }
 
             return jobCategory;

@@ -44,9 +44,10 @@ namespace JobBuddy.Models
         [DataType(DataType.Upload)]
         public string CoverLetter { get; set; }
 
-        public IEnumerable<JobListing> JobListings { get; set; }
+        public ICollection<JobListing> JobListings { get; set; }
 
         public IEnumerable<MentorOffer> OffersReceived { get; set; }
+        
 
         public ClientUserDetails()
         {

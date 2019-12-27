@@ -23,7 +23,7 @@ namespace JobBuddy.Models
 
         public string Description { get; set; }
 
-        public IEnumerable<MentorOffer> OffersReceived { get; set; }
+        public ICollection<MentorOffer> OffersReceived { get; set; }
 
         //enas mentorUser mporei na douleuei se company optional 1-many rel.
         public Company Company { get; set; }

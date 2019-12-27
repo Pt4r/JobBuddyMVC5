@@ -203,6 +203,10 @@
     <Compile Include="Migrations\201912221610346_Added annotation for date in Client.Designer.cs">
       <DependentUpon>201912221610346_Added annotation for date in Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912271114472_Merged from master-dev.cs" />
+    <Compile Include="Migrations\201912271114472_Merged from master-dev.Designer.cs">
+      <DependentUpon>201912271114472_Merged from master-dev.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UserDetails\AdministratorUserDetails.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -339,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912221610346_Added annotation for date in Client.resx">
       <DependentUpon>201912221610346_Added annotation for date in Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912271114472_Merged from master-dev.resx">
+      <DependentUpon>201912271114472_Merged from master-dev.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

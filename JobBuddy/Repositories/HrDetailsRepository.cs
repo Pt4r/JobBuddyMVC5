@@ -15,7 +15,7 @@ namespace JobBuddy.Repositories
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                hrDetails = db.HrDetails.ToList();
+                hrDetails = db.HRs.ToList();
             }
             return hrDetails;
         }
@@ -30,7 +30,7 @@ namespace JobBuddy.Repositories
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 hrDetail.Id = Guid.NewGuid();
-                db.HrDetails.Add(hrDetail);
+                db.HRs.Add(hrDetail);
                 db.SaveChanges();
             }
         }
@@ -43,7 +43,7 @@ namespace JobBuddy.Repositories
             }
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                db.HrDetails.Attach(hrDetail);
+                db.HRs.Attach(hrDetail);
                 db.Entry(hrDetail).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
             }
@@ -53,8 +53,8 @@ namespace JobBuddy.Repositories
         {
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                var hrDetail = db.HrDetails.Find(id);
-                db.HrDetails.Remove(hrDetail);
+                var hrDetail = db.HRs.Find(id);
+                db.HRs.Remove(hrDetail);
                 db.SaveChanges();
             }
         }
@@ -64,7 +64,7 @@ namespace JobBuddy.Repositories
             HrUserDetails hrDetail;
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                hrDetail = db.HrDetails.Find(id);
+                hrDetail = db.HRs.Find(id);
             }
             return hrDetail;
         }

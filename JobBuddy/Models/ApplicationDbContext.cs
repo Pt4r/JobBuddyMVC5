@@ -15,7 +15,7 @@ namespace JobBuddy.Models
         public DbSet<ClientUserDetails> Clients { get; set; }
         public DbSet<Company> Companies { get; set; }
 
-        public DbSet<MentorDetails> Mentors { get; set; }
+        public DbSet<MentorUserDetails> Mentors { get; set; }
 
         public DbSet<MentorOffer> MentorOffers { get; set; }
         public DbSet<HrUserDetails> HrDetails { get; set; }
@@ -32,21 +32,21 @@ namespace JobBuddy.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MentorDetails>()
+            modelBuilder.Entity<MentorUserDetails>()
                         .HasKey(m => m.MentorId);
 
 
 
-            modelBuilder.Entity<MentorDetails>()
+            modelBuilder.Entity<MentorUserDetails>()
                         .Property(m => m.Description)
                         .IsRequired()
                         .HasMaxLength(1000);
 
-            modelBuilder.Entity<MentorDetails>()
+            modelBuilder.Entity<MentorUserDetails>()
                        .Property(m => m.PhoneNumber)
                        .IsRequired();
 
-            modelBuilder.Entity<MentorDetails>()
+            modelBuilder.Entity<MentorUserDetails>()
                       .Property(m => m.Gender)
                       .IsRequired();
 
@@ -55,6 +55,7 @@ namespace JobBuddy.Models
                         .WithMany(m => m.OffersReceived.ToList())
                         .HasForeignKey(mo => mo.MentorId)
                         .WillCascadeOnDelete(false);
+
 
             modelBuilder.Entity<MentorOffer>()
                         .HasKey(mo => mo.MentorOfferId);
@@ -87,8 +88,8 @@ namespace JobBuddy.Models
             modelBuilder.Entity<JobListing>().HasKey(i => i.Id);
             modelBuilder.Entity<JobListing>().Property(i => i.Title).IsRequired().HasMaxLength(250);
             modelBuilder.Entity<JobListing>().Property(i => i.Info).IsRequired().HasMaxLength(1000);
-            modelBuilder.Entity<JobListing>().HasMany(i => i.SubmitedClients).WithMany(c => c.JobListings).Map(s => s.ToTable("ClientSubmitedJobListings"));
-            modelBuilder.Entity<JobListing>().HasRequired(i => i.JobCategory).WithMany(c => c.JobListings).HasForeignKey(i => i.JobCategoryId).WillCascadeOnDelete(false);
+            modelBuilder.Entity<JobListing>().HasMany(i => i.SubmittedClients).WithMany(c => c.JobListings).Map(s => s.ToTable("ClientSubmitedJobListings"));
+//            modelBuilder.Entity<JobListing>().HasRequired(i => i.JobCategory).WithMany(c => c.JobListings).HasForeignKey(i => i.JobCategoryId).WillCascadeOnDelete(false);
 
 
             // Pws tha paroume tin etairia tou HrDetail User na tin kanoume assign sto jobListing??

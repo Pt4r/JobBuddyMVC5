@@ -9,9 +9,9 @@ namespace JobBuddy.Repositories
 {
     public class MentorRepository
     {
-        public IEnumerable<MentorDetails> GetMentors()
+        public IEnumerable<MentorUserDetails> GetMentors()
         {
-            IEnumerable<MentorDetails> mentors;
+            IEnumerable<MentorUserDetails> mentors;
 
             using (var db=new ApplicationDbContext())
             {
@@ -21,31 +21,31 @@ namespace JobBuddy.Repositories
             return mentors;
         }
 
-        public void AddMentor(MentorDetails mentor)
+        public void AddMentor(MentorUserDetails mentorUser)
         {
-            if (mentor == null)
+            if (mentorUser == null)
             {
                 throw new ArgumentNullException();
             }
             using (var db = new ApplicationDbContext())
             {
-                mentor.MentorId = Guid.NewGuid();
-                db.Mentors.Add(mentor);
+                mentorUser.MentorId = Guid.NewGuid();
+                db.Mentors.Add(mentorUser);
                 db.SaveChanges();
             }
         }
 
 
-        public void UpdateMentor(MentorDetails mentor)
+        public void UpdateMentor(MentorUserDetails mentorUser)
         {
-            if (mentor == null)
+            if (mentorUser == null)
             {
                 throw new ArgumentNullException();
             }
             using (var db = new ApplicationDbContext())
             {
-                db.Mentors.Attach(mentor);
-                db.Entry(mentor).State = EntityState.Modified;
+                db.Mentors.Attach(mentorUser);
+                db.Entry(mentorUser).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
@@ -69,17 +69,17 @@ namespace JobBuddy.Repositories
 
         }
 
-        public MentorDetails FindMentorbyId(Guid id)
+        public MentorUserDetails FindMentorbyId(Guid id)
         {
-            MentorDetails mentorFound;
+            MentorUserDetails mentorUserFound;
 
             using (var db = new ApplicationDbContext())
             {
-                mentorFound = db.Mentors.SingleOrDefault(m => m.MentorId == id);
+                mentorUserFound = db.Mentors.SingleOrDefault(m => m.MentorId == id);
               
             }
 
-            return mentorFound;
+            return mentorUserFound;
         }
 
     }

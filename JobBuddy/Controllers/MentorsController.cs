@@ -11,7 +11,7 @@ namespace JobBuddy.Controllers
     public class MentorsController : Controller
     {
         // GET: Mentors
-        private MentorRepository _mentorRepository = new MentorRepository();
+        private readonly MentorRepository _mentorRepository = new MentorRepository();
         
         public ActionResult Index()
         {
@@ -21,25 +21,25 @@ namespace JobBuddy.Controllers
 
         public ActionResult Create()
         {
-            var mentor = new MentorDetails();
+            var mentor = new MentorUserDetails();
             return View(mentor);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Create(MentorDetails mentor)
+        public ActionResult Create(MentorUserDetails mentorUser)
         {
             if(ModelState.IsValid)
             {
-                _mentorRepository.AddMentor(mentor);
+                _mentorRepository.AddMentor(mentorUser);
 
                 return RedirectToAction("Index");
             }
 
             else
             {
-                return View(mentor);
+                return View(mentorUser);
             };
         }
 
@@ -66,17 +66,17 @@ namespace JobBuddy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(MentorDetails mentor)
+        public ActionResult Edit(MentorUserDetails mentorUser)
         {
             if (ModelState.IsValid)
             {
-                _mentorRepository.UpdateMentor(mentor);
+                _mentorRepository.UpdateMentor(mentorUser);
 
                return RedirectToAction("Index");
             }
             else
             {
-                return View(mentor);
+                return View(mentorUser);
             }
             
         }

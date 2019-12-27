@@ -10,11 +10,11 @@ namespace JobBuddy.Models
     {
         public Guid MentorOfferId { get; set; }
 
-        //++User object - foreignKey
-
-        public MentorDetails Mentor { get; set; }
+        public Guid ClientId { get; set; }
+        public ClientUserDetails Client { get; set; }
 
         public Guid MentorId { get; set; }
+        public MentorUserDetails Mentor { get; set; }
 
         public OfferStatus OfferStatus { get; set; }
 

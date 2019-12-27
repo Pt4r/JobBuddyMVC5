@@ -204,7 +204,7 @@
       <DependentUpon>201912221610346_Added annotation for date in Client.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AdministratorDetails.cs" />
+    <Compile Include="Models\UserDetails\AdministratorUserDetails.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -212,21 +212,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\ClientUserDetails.cs" />
+    <Compile Include="Models\UserDetails\ApplicationUser.cs" />
+    <Compile Include="Models\UserDetails\ClientUserDetails.cs" />
     <Compile Include="Models\ClientCreateViewModel.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\CurrentStatus.cs" />
-    <Compile Include="Models\enumGender.cs" />
-    <Compile Include="Models\enumJobCategoryTitle.cs" />
+    <Compile Include="Models\enums\enumGender.cs" />
+    <Compile Include="Models\enums\enumJobCategoryTitle.cs" />
     <Compile Include="Models\LookingForStatus.cs" />
-    <Compile Include="Models\enumOfferStatus.cs" />
+    <Compile Include="Models\enums\enumOfferStatus.cs" />
     <Compile Include="Models\HrUserDetails.cs" />
     <Compile Include="Models\JobListing.cs" />
     <Compile Include="Models\JobCategory.cs" />
     <Compile Include="Repositories\JobCategoriesRepository.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MentorDetails.cs" />
+    <Compile Include="Models\UserDetails\MentorUserDetails.cs" />
     <Compile Include="Models\MentorOffer.cs" />
     <Compile Include="Models\Mentors_MentorOffersViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -297,6 +297,7 @@
     <Content Include="Views\Clients\Delete.cshtml" />
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Details.cshtml" />
+    <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

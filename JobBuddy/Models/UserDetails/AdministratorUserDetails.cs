@@ -5,7 +5,7 @@ using System.Web;
 
 namespace JobBuddy.Models
 {
-    public class AdministratorDetails  // apo ApplicationUser 
+    public class AdministratorUserDetails  // apo ApplicationUser 
     {
         public Guid Id { get; set; }
         

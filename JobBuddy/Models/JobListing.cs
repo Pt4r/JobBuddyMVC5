@@ -22,7 +22,7 @@ namespace JobBuddy.Models
         public Company Company { get; set; }
         public Guid CompanyId { get; set; }
 
-        public List<ClientUserDetails> SubmitedClients { get; set; }
+        public List<ClientUserDetails> SubmittedClients { get; set; }
 
     }
 }

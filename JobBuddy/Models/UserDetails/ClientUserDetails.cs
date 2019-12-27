@@ -12,14 +12,17 @@ namespace JobBuddy.Models
         public Guid Id { get; set; }
 
         [Display(Name = "Profile Picture")]
+        [DataType(DataType.Upload)]
         public string ProfilePicture { get; set; }
 
         [Required]
         [Display(Name = "Phone Number")]
+        [DataType(DataType.PhoneNumber)]
         public int PhoneNumber { get; set; }
 
         [Required]
         [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
 
@@ -34,17 +37,29 @@ namespace JobBuddy.Models
         [Display(Name = "Looking for")]
         public enumLookingForStatus LookingForStatus { get; set; }
 
-        
+        [DataType(DataType.Upload)]
         public string CV { get; set; }
 
         [Display(Name = "Cover Letter")]
+        [DataType(DataType.Upload)]
         public string CoverLetter { get; set; }
 
-        public List<JobListing> JobListings { get; set; }
+        public IEnumerable<JobListing> JobListings { get; set; }
+
+        public IEnumerable<MentorOffer> OffersReceived { get; set; }
+
+        public ClientUserDetails()
+        {
+//            ProfilePicture = default pic path
+            CurrentStatus = CurrentStatus.Unemployed;
+            LookingForStatus = enumLookingForStatus.Full_Time;
+            JobListings = new HashSet<JobListing>();
+            OffersReceived = new HashSet<MentorOffer>();
+
+        }
 
         //FK List Job Interest
         // Hr
         // Mentors
-        //FK List Job Offers
     }
 }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace JobBuddy.Models
 {
-    public class MentorDetails
+    public class MentorUserDetails
     {
         public Guid  MentorId { get; set; }
 
@@ -15,7 +15,7 @@ namespace JobBuddy.Models
         //fk job categories
        
 
-        public string Rating { get; set; }
+        public byte? Rating { get; set; }
 
         public string ProfilePicture { get; set; }
 
@@ -25,7 +25,13 @@ namespace JobBuddy.Models
 
         public IEnumerable<MentorOffer> OffersReceived { get; set; }
 
-        //enas mentor mporei na douleuei se company optional 1-many rel.
+        //enas mentorUser mporei na douleuei se company optional 1-many rel.
         public Company Company { get; set; }
+
+        public MentorUserDetails()
+        {
+//            ProfilePicture = default pic path
+            OffersReceived = new HashSet<MentorOffer>();
+        }
     }
 }

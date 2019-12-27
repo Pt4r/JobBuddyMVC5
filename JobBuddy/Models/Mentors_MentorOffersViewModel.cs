@@ -7,7 +7,7 @@ namespace JobBuddy.Models
 {
     public class Mentors_MentorOffersViewModel
     {
-        public MentorDetails Mentor { get; set; }
+        public MentorUserDetails MentorUser { get; set; }
 
         public IEnumerable<MentorOffer> Offers { get; set; }
     }

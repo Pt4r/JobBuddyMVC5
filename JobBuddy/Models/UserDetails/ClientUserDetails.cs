@@ -44,11 +44,22 @@ namespace JobBuddy.Models
         [DataType(DataType.Upload)]
         public string CoverLetter { get; set; }
 
-        public List<JobListing> JobListings { get; set; }
+        public IEnumerable<JobListing> JobListings { get; set; }
+
+        public IEnumerable<MentorOffer> OffersReceived { get; set; }
+
+        public ClientUserDetails()
+        {
+//            ProfilePicture = default pic path
+            CurrentStatus = CurrentStatus.Unemployed;
+            LookingForStatus = enumLookingForStatus.Full_Time;
+            JobListings = new HashSet<JobListing>();
+            OffersReceived = new HashSet<MentorOffer>();
+
+        }
 
         //FK List Job Interest
         // Hr
         // Mentors
-        //FK List Job Offers
     }
 }

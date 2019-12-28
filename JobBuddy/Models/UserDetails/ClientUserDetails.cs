@@ -48,6 +48,10 @@ namespace JobBuddy.Models
 
         public IEnumerable<MentorOffer> OffersReceived { get; set; }
         
+        public IEnumerable<MentorUserDetails> Mentors { get; set; }
+
+        public IEnumerable<HrUserDetails> HRs { get; set; } 
+
 
         public ClientUserDetails()
         {
@@ -60,7 +64,6 @@ namespace JobBuddy.Models
         }
 
         //FK List Job Interest
-        // Hr
-        // Mentors
+        
     }
 }

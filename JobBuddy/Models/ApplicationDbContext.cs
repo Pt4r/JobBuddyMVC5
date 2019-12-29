@@ -12,6 +12,8 @@ namespace JobBuddy.Models
         public DbSet<MentorDetails> Mentors { get; set; }
 
         public DbSet<MentorOffer> MentorOffers { get; set; }
+
+        public DbSet<Company> Companies { get; set; }
         public ApplicationDbContext()
             : base("PasparakisDB", throwIfV1Schema: false)
         {
@@ -25,23 +27,24 @@ namespace JobBuddy.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-              modelBuilder.Entity<MentorDetails>()
-                        .HasKey(m => m.MentorId);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<MentorDetails>()
+                      .HasKey(m => m.MentorId);
 
-              modelBuilder.Entity<MentorDetails>()
-                       .Property(m => m.PhoneNumber)
-                       .HasMaxLength(25)
-                       .IsRequired();
+            modelBuilder.Entity<MentorDetails>()
+                     .Property(m => m.PhoneNumber)
+                     .HasMaxLength(25)
+                     .IsRequired();
 
-             //Πρέπει να δω πώς θα μπει το Rating ..Προς το παρόν μόνο Required
-             modelBuilder.Entity<MentorDetails>()
-                       .Property(m => m.Rating)
-                       .IsRequired(); 
+            //Πρέπει να δω πώς θα μπει το Rating ..Προς το παρόν μόνο Required
+            modelBuilder.Entity<MentorDetails>()
+                      .Property(m => m.Rating)
+                      .IsRequired();
             //episis na doume pws mpainei kai ti length...
-             modelBuilder.Entity<MentorDetails>()
-                       .Property(m => m.ProfilePicture)
-                       .IsOptional()
-                       .HasColumnName("[Profile Picture]");
+            modelBuilder.Entity<MentorDetails>()
+                      .Property(m => m.ProfilePicture)
+                      .IsOptional()
+                      .HasColumnName("[Profile Picture]");
 
 
             modelBuilder.Entity<MentorDetails>()
@@ -55,15 +58,15 @@ namespace JobBuddy.Models
 
             //Company-Mentor relationship
             modelBuilder.Entity<MentorDetails>()
-                        .HasOptional(m=>m.Company)
-                        .WithMany(c=>c.Mentors)
-                        .HasForeignKey(m=>m.CompanyId)
+                        .HasOptional(m => m.Company)
+                        .WithMany(c => c.Mentors)
+                        .HasForeignKey(m => m.CompanyId)
                         .WillCascadeOnDelete(false);
 
             //Mentor-MentorOffer Relationship
             modelBuilder.Entity<MentorOffer>()
                         .HasRequired(mo => mo.Mentor)
-                        .WithMany(m=>m.OffersReceived.ToList())
+                        .WithMany(m => m.OffersReceived)
                         .HasForeignKey(mo => mo.MentorId)
                         .WillCascadeOnDelete(false);
 
@@ -81,12 +84,12 @@ namespace JobBuddy.Models
             modelBuilder.Entity<MentorOffer>()
                      .Property(mo => mo.PostDate)
                      .IsRequired();
-           
+
             modelBuilder.Entity<MentorOffer>()
                     .Property(mo => mo.MentorId)
                     .IsRequired();
 
-            //base.OnModelCreating(modelBuilder);
+
         }
     }
 

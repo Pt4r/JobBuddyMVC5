@@ -189,6 +189,18 @@
     <Compile Include="Migrations\201912201635388_First Init.Designer.cs">
       <DependentUpon>201912201635388_First Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912281343134_Editing-AspnetUsersRoles and adding tables companies,mentors,mentorDetails,Mentor offers.cs" />
+    <Compile Include="Migrations\201912281343134_Editing-AspnetUsersRoles and adding tables companies,mentors,mentorDetails,Mentor offers.Designer.cs">
+      <DependentUpon>201912281343134_Editing-AspnetUsersRoles and adding tables companies,mentors,mentorDetails,Mentor offers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912281434364_Changing Admins role.cs" />
+    <Compile Include="Migrations\201912281434364_Changing Admins role.Designer.cs">
+      <DependentUpon>201912281434364_Changing Admins role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912281940181_SynchronizeUserWithMentorDetails.cs" />
+    <Compile Include="Migrations\201912281940181_SynchronizeUserWithMentorDetails.Designer.cs">
+      <DependentUpon>201912281940181_SynchronizeUserWithMentorDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -264,6 +276,13 @@
     <Content Include="Views\Mentors\Delete.cshtml" />
     <Content Include="Views\Mentors\Edit.cshtml" />
     <Content Include="Views\Mentors\Details.cshtml" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -284,6 +303,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201912201635388_First Init.resx">
       <DependentUpon>201912201635388_First Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912281343134_Editing-AspnetUsersRoles and adding tables companies,mentors,mentorDetails,Mentor offers.resx">
+      <DependentUpon>201912281343134_Editing-AspnetUsersRoles and adding tables companies,mentors,mentorDetails,Mentor offers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912281434364_Changing Admins role.resx">
+      <DependentUpon>201912281434364_Changing Admins role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912281940181_SynchronizeUserWithMentorDetails.resx">
+      <DependentUpon>201912281940181_SynchronizeUserWithMentorDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

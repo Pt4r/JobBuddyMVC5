@@ -5,23 +5,29 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using JobBuddy.Models;
+using Microsoft.AspNet.Identity;
 
 namespace JobBuddy.Controllers
 {
     public class MentorsController : Controller
     {
+        public string IdFromUser;
         // GET: Mentors
         private MentorRepository _mentorRepository = new MentorRepository();
         
         public ActionResult Index()
         {
-            var mentors = _mentorRepository.GetMentors();
+            //id = IdFromUser;
+            var id = User.Identity.GetUserId();
+            var mentors = _mentorRepository.GetMentors(id);
+            
             return View(mentors);
         }
 
         public ActionResult Create()
         {
             var mentor = new MentorDetails();
+            
             return View(mentor);
         }
 
@@ -32,6 +38,9 @@ namespace JobBuddy.Controllers
         {
             if(ModelState.IsValid)
             {
+
+                mentor.ApplicationUserId = User.Identity.GetUserId();
+
                 _mentorRepository.AddMentor(mentor);
 
                 return RedirectToAction("Index");

@@ -9,12 +9,15 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using JobBuddy.Models;
+using JobBuddy.Repositories;
+using System.Collections.Generic;
 
 namespace JobBuddy.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private MentorRepository _mentorRepository = new MentorRepository();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -153,19 +156,41 @@ namespace JobBuddy.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,FirstName=model.FirstName,LastName=model.LastName,UserRole=model.UserRoles };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    //mapping with aspnet roles
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+
+                  
+
+                    if (user.UserRole=="Client")
+                    {
+
+                        //return RedirectToAction("Index", "Clients");
+                    }
+
+                    if (user.UserRole == "HR")
+                    {
+                        //return RedirectToAction("Index", "HrDetails");
+                    }
+
+                    if (user.UserRole == "Mentor")
+                    {
+                      
+                        return RedirectToAction("Index", "Mentors"/*, new { Id = user.Id }*/);
+                    }
+
+
                 }
                 AddErrors(result);
             }
@@ -394,6 +419,7 @@ namespace JobBuddy.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
 

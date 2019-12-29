@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Security.Claims;
@@ -19,6 +20,17 @@ namespace JobBuddy.Models
         [MaxLength(50)]
         public string LastName { get; set; }
 
+        //Prostheto UserRole kai Lista me mentorDetails,clients admins kai hr--opws to exoume stise einai 1tomany alla syzitisi
+        [Required]
+        public string UserRole { get; set; }
+
+        public List<MentorUserDetails> MentorDetails { get; set; }
+
+        public List<AdministratorUserDetails> AdminDetails { get; set; }
+
+        public List<ClientUserDetails> ClientDetails { get; set; }
+
+        public List<HrUserDetails> HrDetails { get; set; }
 
         [NotMapped]
         public string FullName

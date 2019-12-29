@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201912271114472_Merged from master-dev.Designer.cs">
       <DependentUpon>201912271114472_Merged from master-dev.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912291953099_BuildTheDatabase.cs" />
+    <Compile Include="Migrations\201912291953099_BuildTheDatabase.Designer.cs">
+      <DependentUpon>201912291953099_BuildTheDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UserDetails\AdministratorUserDetails.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -345,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912271114472_Merged from master-dev.resx">
       <DependentUpon>201912271114472_Merged from master-dev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912291953099_BuildTheDatabase.resx">
+      <DependentUpon>201912291953099_BuildTheDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

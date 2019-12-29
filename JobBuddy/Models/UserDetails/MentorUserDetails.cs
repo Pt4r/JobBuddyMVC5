@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,9 +8,15 @@ namespace JobBuddy.Models
 {
     public class MentorUserDetails
     {
+        //prosthetw application user Foreign key
+
+        [ForeignKey("ApplicationUserId")]
+        public ApplicationUser ApplicationUser { get; set; }
+
+        public string ApplicationUserId { get; set; }
         public Guid  MentorId { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         //fk user
         //fk job categories
@@ -28,6 +35,9 @@ namespace JobBuddy.Models
         //enas mentorUser mporei na douleuei se company optional 1-many rel.
         public Company Company { get; set; }
 
+        //company foreign key ... to bazw etsi giati m xtupouse me fluent api
+      
+        public Guid? CompanyId { get; set; }
         public MentorUserDetails()
         {
 //            ProfilePicture = default pic path

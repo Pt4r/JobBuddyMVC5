@@ -30,30 +30,50 @@ namespace JobBuddy.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //eixa kanei kapoies allages sto fluent pou den eixan perastei
+
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<MentorUserDetails>()
-                        .HasKey(m => m.MentorId);
-
-
-
-            modelBuilder.Entity<MentorUserDetails>()
-                        .Property(m => m.Description)
-                        .IsRequired()
-                        .HasMaxLength(1000);
+                      .HasKey(m => m.MentorId);
 
             modelBuilder.Entity<MentorUserDetails>()
-                       .Property(m => m.PhoneNumber)
-                       .IsRequired();
+                     .Property(m => m.PhoneNumber)
+                     .HasMaxLength(25)
+                     .IsRequired();
+
+            //Πρέπει να δω πώς θα μπει το Rating ..Προς το παρόν μόνο Required
+            modelBuilder.Entity<MentorUserDetails>()
+                      .Property(m => m.Rating)
+                      .IsRequired();
+            //episis na doume pws mpainei kai ti length...
+            modelBuilder.Entity<MentorUserDetails>()
+                      .Property(m => m.ProfilePicture)
+                      .IsOptional()
+                      .HasColumnName("[Profile Picture]");
+
 
             modelBuilder.Entity<MentorUserDetails>()
                       .Property(m => m.Gender)
                       .IsRequired();
 
+            modelBuilder.Entity<MentorUserDetails>()
+                        .Property(m => m.Description)
+                        .IsRequired()
+                        .HasMaxLength(2000);
+
+            //Company-Mentor relationship
+            modelBuilder.Entity<MentorUserDetails>()
+                        .HasOptional(m => m.Company)
+                        .WithMany(c => c.Mentors)
+                        .HasForeignKey(m => m.CompanyId)
+                        .WillCascadeOnDelete(false);
+
+            //Mentor-MentorOffer Relationship
             modelBuilder.Entity<MentorOffer>()
                         .HasRequired(mo => mo.Mentor)
                         .WithMany(m => m.OffersReceived)
                         .HasForeignKey(mo => mo.MentorId)
                         .WillCascadeOnDelete(false);
-
 
             modelBuilder.Entity<MentorOffer>()
                         .HasKey(mo => mo.MentorOfferId);

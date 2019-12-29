@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using JobBuddy.Models;
 
 namespace JobBuddy.Models
 {
@@ -27,6 +28,9 @@ namespace JobBuddy.Models
 
         public List<HrUserDetails> HrUser { get; set; }
         public List<JobListing> JobListings { get; set; }
+
+        //Lista me mentors 
+        public List<MentorUserDetails> Mentors { get; set; }
         // Hr List
         //FK List Job Categories
     }

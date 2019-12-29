@@ -8,14 +8,15 @@ namespace JobBuddy.Repositories
 {
     public class HrDetailsRepository
     {
-
-        public IEnumerable<HrUserDetails> GetHrs()
+        //prostheto parametro to id tou Aspnetuser
+        public IEnumerable<HrUserDetails> GetHrs(string Id)
         {
             IEnumerable<HrUserDetails> hrDetails;
 
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                hrDetails = db.HRs.ToList();
+                //Allazw to search me basi to Id tou Logged in user ...Wste na fortwnw se kathe login mono ta dedomena tou xristi//
+                hrDetails = db.HRs.Where(m => m.ApplicationUserId == Id).ToList();
             }
             return hrDetails;
         }

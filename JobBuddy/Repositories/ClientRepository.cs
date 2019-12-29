@@ -9,13 +9,15 @@ namespace JobBuddy.Repositories
 {
     public class ClientRepository
     {
-        public IEnumerable<ClientUserDetails> GetClients()
+        //prostheto parametro to id tou Aspnetuser
+        public IEnumerable<ClientUserDetails> GetClients(string Id)
         {
             IEnumerable<ClientUserDetails> clients;
 
             using (var db = new ApplicationDbContext())
             {
-                clients = db.Clients.ToList();
+                //Allazw to search me basi to Id tou Logged in user ...Wste na fortwnw se kathe login mono ta dedomena tou xristi//
+                clients = db.Clients.Where(c => c.ApplicationUserId == Id).ToList();
             }
 
             return clients;

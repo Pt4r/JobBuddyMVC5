@@ -9,13 +9,15 @@ namespace JobBuddy.Repositories
 {
     public class MentorRepository
     {
-        public IEnumerable<MentorUserDetails> GetMentors()
+        //prostheto parametro to id tou Aspnetuser
+        public IEnumerable<MentorUserDetails> GetMentors(string Id)
         {
             IEnumerable<MentorUserDetails> mentors;
 
             using (var db=new ApplicationDbContext())
             {
-                mentors = db.Mentors.ToList();
+                //Allazw to search me basi to Id tou Logged in user ...Wste na fortwnw se kathe login mono ta dedomena tou xristi//
+                mentors = db.Mentors.Include(m=>m.ApplicationUser).Where(m => m.ApplicationUserId == Id).ToList();
             }
 
             return mentors;

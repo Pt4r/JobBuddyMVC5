@@ -5,17 +5,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using JobBuddy.Models;
+using Microsoft.AspNet.Identity;
 
 namespace JobBuddy.Controllers
 {
+    [Authorize(Roles = "Admin,Mentor")]
     public class MentorsController : Controller
     {
         // GET: Mentors
         private readonly MentorRepository _mentorRepository = new MentorRepository();
         
+
         public ActionResult Index()
         {
-            var mentors = _mentorRepository.GetMentors();
+            // filtrarw by AspnetuserId
+            var id = User.Identity.GetUserId();
+            var mentors = _mentorRepository.GetMentors(id);
             return View(mentors);
         }
 
@@ -32,6 +37,8 @@ namespace JobBuddy.Controllers
         {
             if(ModelState.IsValid)
             {
+                //Sto create prin prosthesw to neo mentor stin basi kaataxwrw san foreignkey to AspnetuserId 
+                mentorUser.ApplicationUserId = User.Identity.GetUserId();
                 _mentorRepository.AddMentor(mentorUser);
 
                 return RedirectToAction("Index");
@@ -70,6 +77,8 @@ namespace JobBuddy.Controllers
         {
             if (ModelState.IsValid)
             {
+                mentorUser.ApplicationUserId = User.Identity.GetUserId();
+
                 _mentorRepository.UpdateMentor(mentorUser);
 
                return RedirectToAction("Index");
